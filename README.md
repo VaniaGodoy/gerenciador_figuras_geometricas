@@ -1,6 +1,6 @@
 # Screenshots
 
-![Tela Principal] (screenshot.png)
+![Tela Principal](screenshot.png)
 
 ## Gerenciador de Figuras Geométricas
 
