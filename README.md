@@ -22,6 +22,6 @@ No método `main`, são criados objetos dessas figuras, armazenados em uma lista
 
 #### Vizualizar o código online
 
-Copie e cole no seu navegador para abrir e executar o código o link abaixo.
+Copie e cole no seu navegador o link abaixo para abrir e executar o código.
 
 https://www.programiz.com/online-compiler/89JIgwRnvi5EO
