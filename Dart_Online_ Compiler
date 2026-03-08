@@ -1,0 +1,114 @@
+import 'dart:math';
+
+abstract class Figura {
+  int x;
+  int y;
+
+  Figura(this.x, this.y);
+
+  double area();
+}
+
+class Circulo extends Figura {
+  double raio;
+
+  Circulo(int x, int y, this.raio) : super(x, y);
+
+  double diametro() {
+    return 2 * raio;
+  }
+
+  @override
+  double area() {
+    return pi * raio * raio;
+  }
+}
+
+class Retangulo extends Figura {
+  double base;
+  double altura;
+
+  Retangulo(int x, int y, this.base, this.altura) : super(x, y);
+
+  bool isQuadrado() {
+    return base == altura;
+  }
+
+  @override
+  double area() {
+    return base * altura;
+  }
+}
+
+class Triangulo extends Figura {
+  double a;
+  double b;
+  double c;
+
+  Triangulo(int x, int y, this.a, this.b, this.c) : super(x, y);
+
+  String tipo() {
+    if (a == b && b == c) {
+      return "Equilatero";
+    } else if (a == b || a == c || b == c) {
+      return "Isosceles";
+    } else {
+      return "Escaleno";
+    }
+  }
+
+  @override
+  double area() {
+    double p = (a + b + c) / 2;
+    return sqrt(p * (p - a) * (p - b) * (p - c));
+  }
+}
+
+void main() {
+  List<Figura> listaFiguras = [];
+
+  var c = Circulo(3, 4, 3);
+  print("Criado Circulo em X=${c.x} Y=${c.y}");
+  print("Area: ${c.area()}");
+  print("Diametro: ${c.diametro()}\n");
+  listaFiguras.add(c);
+
+  var r1 = Retangulo(1, 2, 4, 4);
+  print("Criado Retangulo em X=${r1.x} Y=${r1.y}");
+  print("Area: ${r1.area()}");
+
+  if (r1.isQuadrado()) {
+    print("Eh um quadrado!\n");
+  } else {
+    print("Nao eh um quadrado!\n");
+  }
+
+  listaFiguras.add(r1);
+
+  var r2 = Retangulo(9, 5, 3, 7);
+  print("Criado Retangulo em X=${r2.x} Y=${r2.y}");
+  print("Area: ${r2.area()}");
+
+  if (r2.isQuadrado()) {
+    print("Eh um quadrado!\n");
+  } else {
+    print("Nao eh um quadrado!\n");
+  }
+
+  listaFiguras.add(r2);
+
+  var t = Triangulo(5, 6, 3, 4, 5);
+  print("Criado Triangulo em X=${t.x} Y=${t.y}");
+  print("Area: ${t.area()}");
+  print("Triangulo ${t.tipo()}\n");
+
+  listaFiguras.add(t);
+
+  double total = 0;
+
+  for (var figura in listaFiguras) {
+    total += figura.area();
+  }
+
+  print("Area total dos objetos: ${total.toStringAsFixed(4)}");
+}
